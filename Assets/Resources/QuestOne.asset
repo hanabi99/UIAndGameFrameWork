@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3133c84c7a51f5a4b94b364a7e690c8e, type: 3}
+  m_Name: QuestOne
+  m_EditorClassIdentifier: 
+  NodeData:
+  - Guid: c0ccc86b-cc51-4552-adcd-8a2e6277bae3
+    DialogueText: QuestOne
+    Position: {x: 276.8, y: 181.59999}
+  - Guid: 644871b9-fcf4-478a-b5ca-12930e9f03e9
+    DialogueText: QuestOne
+    Position: {x: 643.2, y: 220.8}
+  - Guid: b26d46b0-ff72-45bb-8d0d-19c6787db823
+    DialogueText: QuestOne
+    Position: {x: 643.2, y: 356}
+  - Guid: 9fdaf47a-90c8-4028-84e7-a49449ee3e22
+    DialogueText: QuestOne
+    Position: {x: 643.2, y: 60.8}
+  LinkData:
+  - BaseNodeGuid: 4baaf33f-d7da-499f-ad79-02ba73946efa
+    PortName: Next
+    TargetNodeGuid: c0ccc86b-cc51-4552-adcd-8a2e6277bae3
+  - BaseNodeGuid: c0ccc86b-cc51-4552-adcd-8a2e6277bae3
+    PortName: Choice 1
+    TargetNodeGuid: 9fdaf47a-90c8-4028-84e7-a49449ee3e22
+  - BaseNodeGuid: c0ccc86b-cc51-4552-adcd-8a2e6277bae3
+    PortName: Choice 2
+    TargetNodeGuid: 644871b9-fcf4-478a-b5ca-12930e9f03e9
+  - BaseNodeGuid: c0ccc86b-cc51-4552-adcd-8a2e6277bae3
+    PortName: Choice 3
+    TargetNodeGuid: b26d46b0-ff72-45bb-8d0d-19c6787db823

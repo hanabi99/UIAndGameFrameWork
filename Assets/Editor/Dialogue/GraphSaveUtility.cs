@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Graphs;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 public class GraphSaveUtility
@@ -107,5 +109,29 @@ public class GraphSaveUtility
 
     private void ConnectNodes()
     {
+        for (int i = 0; i < Nodes.Count; i++)
+        {
+            var connections = _containerCache.LinkData.Where(x => x.BaseNodeGuid == Nodes[i].GUID).ToList();
+            for (int j = 0; j < connections.Count; j++)
+            {
+                var targetNodeGuid = connections[j].TargetNodeGuid;
+                var targetNode = Nodes.First(x => x.GUID == targetNodeGuid);
+                LinkNodes(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
+                targetNode.SetPosition(new Rect(_containerCache.NodeData.First(x => x.Guid == targetNodeGuid).Position, _targetGraphView.defaultNodeSize));
+            }
+        }
+    }
+
+    private void LinkNodes(Port output, Port input)
+    {
+       var tempEdge = new Edge()
+       {
+           output = output,
+           input = input
+       };
+
+       tempEdge.input.Connect(tempEdge);
+       tempEdge.output.Connect(tempEdge);
+       _targetGraphView.Add(tempEdge);
     }
 }

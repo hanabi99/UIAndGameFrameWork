@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,6 +24,15 @@ public class DialogueGraph : EditorWindow
     {
         ConstructGraphView();
         GenerateToolBar();
+        GenerateMiniMap();
+    }
+
+    private void GenerateMiniMap()
+    {
+        var minimap = new MiniMap();
+        minimap.anchored = true;
+        minimap.SetPosition(new Rect(10,30,200,140));
+        _dialogueGraphView.Add(minimap);
     }
 
 
@@ -39,6 +49,7 @@ public class DialogueGraph : EditorWindow
     private void GenerateToolBar()
     {
         var toolbar = new Toolbar();
+        
 
         var fileNameText =  new TextField("File Name");
         fileNameText.SetValueWithoutNotify(_fileName);
