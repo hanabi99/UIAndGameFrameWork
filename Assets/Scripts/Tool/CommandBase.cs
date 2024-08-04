@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace MyGameFrameWork
 {
-    public abstract class CommandBase : MonoBehaviour
+    public interface CommandBase
     {
         /// <summary>
         /// Ö´ÐÐÃüÁî
         /// </summary>
-        public abstract void Excute();
+        void Excute();
 
 
         /// <summary>
         /// ³·ÏúÃüÁî
         /// </summary>
-        public abstract void Undo();
+        void Undo();
     }
 }

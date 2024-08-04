@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyGameFrameWork { 
-public enum CommandType
+namespace MyGameFrameWork
 {
-
-}
+    public enum CommandType
+    {
+        Log
+    }
     public class CommandManager : Singleton<CommandManager>
     {
-        public Dictionary<CommandType, List<CommandBase>> commandDic = new Dictionary<CommandType, List<CommandBase>>();
+        private Dictionary<CommandType, List<CommandBase>> commandDic = new Dictionary<CommandType, List<CommandBase>>();
 
         /// <summary>
         /// ÃÌº”√¸¡Ó
